@@ -1,3 +1,7 @@
+import streamlit as st
+import random
+
+# Mood-to-compliments dictionary
 compliments = {
     "happy": [
         "You glow different today ✨",
@@ -40,3 +44,12 @@ compliments = {
         "Even storms eventually run out of rain 🌦️"
     ]
 }
+
+# Streamlit UI
+st.title("💖 Mood-Based Compliment Generator")
+
+mood = st.selectbox("How are you feeling today?", list(compliments.keys()))
+
+if st.button("Give me a compliment!"):
+    st.success(random.choice(compliments[mood]))
+
